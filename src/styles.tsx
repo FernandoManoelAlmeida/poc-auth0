@@ -6,7 +6,7 @@ export const Button = styled.button`
   padding: 10px 20px;
   cursor: pointer;
   font-weight: bold;
-  width: calc(100% - 30px);
+  width: calc(100% - 127px);
   margin: 0 15px;
 `
 
@@ -17,7 +17,6 @@ export const AppContainer = styled.section`
 export const AppLogo = styled.img`
   height: 100px;
   pointer-events: none;
-  margin: -22px;
 
   @media (prefers-reduced-motion: no-preference) {
     animation: App-logo-spin infinite 20s linear;
@@ -45,5 +44,10 @@ export const AppHeader = styled.div`
 `
 
 export const DivContainer = styled.div`
-  max-width: 400px;
+  width: 400px;
+`
+
+export const CodeContainer = styled.code`
+  word-wrap: break-word;
+  font-size: 12px
 `

@@ -18,7 +18,7 @@ const auth0Options = {
   useFormData: true,
   skipDecodedIdToken: true,
   onRedirectCallback: (appState: any) => {
-    console.log(appState)
+    localStorage.setItem("appState", JSON.stringify(appState));
   }
 }
 
