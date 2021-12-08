@@ -6,13 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 
 const auth0Options = {
-  domain: "https://ceabrb2cdev.b2clogin.com/ceabrb2cdev.onmicrosoft.com/B2C_1_poc-politica-b2c/oauth2/v2.0",
-  tokenDomain: "https://api-dev.cea.com.br/oauth/v2/token",
-  clientId: "4e663add-751d-4e5c-b1cd-aa62f4455cb7",
-  clientSecret: "2d389157-e7de-37c3-8a2b-d21523950662",
+  domain: process.env.REACT_APP_AUTH_DOMAIN || "",
+  clientId: process.env.REACT_APP_AUTH_CLIENT_ID || "",
+  tokenDomain: process.env.REACT_APP_AUTH_TOKEN_DOMAIN,
+  clientSecret: process.env.REACT_APP_AUTH_CODE_VERIFIER,
+  code_verifier: process.env.REACT_APP_AUTH_DOMAIN,
   redirectUri: window.location.origin,
   response_type: "code",
-  code_verifier: "ZlSHQ5a_8gdQ2PObesHovAnId1R8yFfYR2ywf3M-zL0",
   code_challenge_method: "S256",
   useRefreshTokens: true,
   useFormData: true,
