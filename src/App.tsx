@@ -73,8 +73,8 @@ function App() {
                 Logout
               </Button>
               <p>
-                <CodeContainer>
-                  access_token: {`${appState.access_token}`}
+                <CodeContainer title={appState.access_token}>
+                  access_token: {`${appState.access_token.substring(0, 25)}...`}
                 </CodeContainer>
               </p>
             </>
