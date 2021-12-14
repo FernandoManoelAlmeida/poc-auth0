@@ -8,9 +8,8 @@ import './index.css';
 const auth0Options = {
   domain: process.env.REACT_APP_AUTH_DOMAIN || "",
   clientId: process.env.REACT_APP_AUTH_CLIENT_ID || "",
-  tokenDomain: process.env.REACT_APP_AUTH_TOKEN_DOMAIN,
-  clientSecret: process.env.REACT_APP_AUTH_CODE_VERIFIER,
-  code_verifier: process.env.REACT_APP_AUTH_DOMAIN,
+  tokenDomain: `${process.env.REACT_APP_API_DOMAIN}/oauth/v2/token`,
+  clientSecret: process.env.REACT_APP_AUTH_CLIENT_SECRET,
   redirectUri: window.location.origin,
   response_type: "code",
   code_challenge_method: "S256",

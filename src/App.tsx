@@ -14,6 +14,23 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [appState, setAppState] = useState<any>({});
 
+  async function getUser() {
+    const headers = {
+      "Accept": "application/json",
+      "Authorization": `${appState.token_type} ${appState.access_token}`,
+      "Content-Type": "application/json;charset=UTF-8",
+      "mode": "no-cors",
+    };
+
+    await fetch(`${process.env.REACT_APP_API_DOMAIN}/mktp/v1/usuarios/perfil`, {
+      headers,
+      method: "GET"
+    })
+    .then((response) => response.json())
+    .then((response) => console.log(response))
+    .catch((err) => console.log(err));
+  }
+
   function toLocationOrigin() {
     window.location.assign(window.location.origin);
   }
@@ -37,6 +54,13 @@ function App() {
     }
 
   }, [isLoading]);
+
+  useEffect(() => {
+    if (appState.access_token) {
+      getUser();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [appState.access_token]);
 
   return (
     <AppContainer>
